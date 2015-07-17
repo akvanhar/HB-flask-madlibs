@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Game</title>
+  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./static/madlibs.css">
+</head>
+<body>
+    <h1>Welcome to The Game!</h1>
+    <form action='/madlib'>
+        <label>
+            Enter a name of a person:
+            <input class='textbox' type='text' name='person'>
+        </label>
+        <br>
+        <label>
+            Pick a color:
+            <select name="color">
+                <option id='red' value='red'>Red</option>
+                <option id='orange' value='orange'>Orange</option>
+                <option id='yellow' value='yellow'>Yellow</option>
+                <option id='green' value='green'>Green</option>
+                <option id='blue' value='blue'>Blue</option>
+                <option id='purple' value='purple'>Purple</option>
+            </select>
+        </label>
+        <br>
+        <label>
+            Enter a noun:
+            <input class='textbox' type='text' name='noun'>
+        </label>
+        <br>
+        <label>
+            Enter an adjective:
+            <input class='textbox' type='text' name='adjective'>
+        </label>
+        <br>
+        <label>
+            Pick some animals for our story:<br>
+            <input type='checkbox' name='cat' value='cat'>Cat<br>
+            <input type='checkbox' name='dog' value='dog'>Dog<br>
+            <input type='checkbox' name='rabbit' value='rabbit'>Rabbit<br>
+            <input type='checkbox' name='goldfish' value='goldfish'>Goldfish<br>
+            <input type='checkbox' name='python' value='python'>Python
+        <br>
+        <label>
+            Pick 2 types of food:
+            <select name="food1">
+                <option value='tomatoes'>Tomatoes</option>
+                <option value='peanutbutter'>Peanut Butter</option>
+                <option value='pork'>Pork</option>
+            </select>
+            <select name="food2">
+                <option value='peas'>Peas</option>
+                <option value='doughnuts'>Doughnuts</option>
+                <option value='ketchup'>Ketchup</option>
+            </select>
+        </label>
+        <br>
+        <br>
+        <label>
+            Get a madlib!<br>
+            <input class='submit' type='submit'>
+        </label>
+    </form>
+</body>
+</html>
