@@ -49,16 +49,17 @@ def show_madlib():
     animal_choices.append(request.args.get("rabbit"))
     animal_choices.append(request.args.get("goldfish"))
     animal_choices.append(request.args.get("python"))
+    real_animals = []
     for animal in animal_choices:
-        if animal == None:
-            animal_choices.remove(animal)
+        if animal != None:
+            real_animals.append(animal)
 
     food_choice_1 = request.args.get("food1")
     food_choice_2 = request.args.get("food2")
 
     # make a list of all the various selected animals then pass that into jinja
 
-    return render_template('madlib.html', food1 = food_choice_1, food2 = food_choice_2, person = player, color = color_choice, noun = noun_choice, adjective = adjective_choice, animals=animal_choices)
+    return render_template('madlib.html', food1 = food_choice_1, food2 = food_choice_2, person = player, color = color_choice, noun = noun_choice, adjective = adjective_choice, animals=real_animals)
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
