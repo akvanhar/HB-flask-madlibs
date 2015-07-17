@@ -6,17 +6,21 @@
   <link rel="stylesheet" href="./static/madlibs.css">
 </head>
 <body>
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
     <img src="https://simplyfantasticbooks.files.wordpress.com/2015/03/green_eggs_and_ham.gif" alt="Green Eggs and Ham" id="green-eggs">
-    <h1>{{ color }} {{food1}} and {{food2}}!</h1>
+    <h1>{{ color|title }} {{food1|title}} and {{food2|title}}!</h1>
 
     <p>
     Do you like <br>
-    {{color}} {{food1}} and {{food2}}<br>
+    {{color|title}} {{food1}} and {{food2}}<br>
 
     <br>I do not like them, <br>
     {{ person }}-I-am.<br>
     I do not like<br>
-    {{color}} {{food1}} and {{food2}}.<br>
+    {{color|title}} {{food1}} and {{food2}}.<br>
 
     <br>Would you like them <br>
     Here or there?<br>
@@ -26,7 +30,7 @@
     I would not like them <br>
     anywhere.<br>
     I do not like <br>
-    {{color}} {{food1}} and {{food2}}.<br>
+    {{color|title}} {{food1}} and {{food2}}.<br>
     I do not like them, <br>
     {{ person }}-I-am<br>
 

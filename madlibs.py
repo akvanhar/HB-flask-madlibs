@@ -7,13 +7,9 @@ from flask import Flask, render_template, request
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__)
 
-# route to handle the landing page of a website.
-@app.route('/')
-def start_here():
-    return "Hi! This is the home page."
 
 # route to display a simple web page
-@app.route('/hello')
+@app.route('/')
 def say_hello():
     return render_template("hello.html")
 
@@ -26,6 +22,7 @@ def greet_person():
         'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
 
     compliment = choice(AWESOMENESS)
+
 
     return render_template("compliment.html", person=player, compliment=compliment)
 
@@ -42,8 +39,8 @@ def show_madlib():
     animal_choices = []
     player = request.args.get("person")
     color_choice = request.args.get("color")
-    noun_choice = request.args.get("noun")
-    adjective_choice = request.args.get("adjective")
+    noun_choice = request.args.get("noun").lower()
+    adjective_choice = request.args.get("adjective").lower()
     animal_choices.append(request.args.get("cat"))
     animal_choices.append(request.args.get("dog"))
     animal_choices.append(request.args.get("rabbit"))
@@ -53,13 +50,16 @@ def show_madlib():
     for animal in animal_choices:
         if animal != None:
             real_animals.append(animal)
-
+    if len(real_animals) == 0:
+        real_animals.append('fish')
     food_choice_1 = request.args.get("food1")
     food_choice_2 = request.args.get("food2")
-
+    
+    MADLIBS = ['madlib.html', 'madlibfish.html']
+    malib = choice(MADLIBS)
     # make a list of all the various selected animals then pass that into jinja
 
-    return render_template('madlib.html', food1 = food_choice_1, food2 = food_choice_2, person = player, color = color_choice, noun = noun_choice, adjective = adjective_choice, animals=real_animals)
+    return render_template(malib, food1 = food_choice_1, food2 = food_choice_2, person = player, color = color_choice, noun = noun_choice, adjective = adjective_choice, animals=real_animals)
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app

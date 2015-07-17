@@ -6,13 +6,18 @@
   <link rel="stylesheet" href="./static/madlibs.css">
 </head>
 <body>
-    Hi {{ person }}! I think you're {{ compliment }}!
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
+    <h1>Hi {{ person }}! I think you're {{ compliment }}!</h1>
     <form action="/game">
-        <label>Would you like to play a game?
-            <input type="radio" name="choice" value="yes">Yes
-            <input type="radio" name="choice" value="no">No
+        <label>Would you like to play a game?<br>
+            <input class="radio" type="radio" name="choice" value="yes">Yes
+            <input class="radio" type="radio" name="choice" value="no">No
+            <br>
         </label>
-        <input type="submit">
+        <input class='submit' type="submit">
     </form>
 </body>
 </html>
